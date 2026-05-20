@@ -55,6 +55,73 @@ Ideen, die man benutzen kann:
 
 Node-Red:
 
+Wie dein Node-RED Discord Bot funktioniert
+Das große Bild
+
+Minecraft Server Monitor
+Aktualisiert automatisch den Discord-Bot wenn Spieler joinen/leaven
+Antwortet auf Slash-Commands
+
+
+Die 3 Trigger (links)
+
+Drei Timestamp-Nodes feuern regelmässig (z.B. alle 30 Sekunden)
+Zwei davon fragen den Minecraft-Server ab
+Einer initialisiert den Discord-Client
+
+
+Der Datenfluss
+Server Info -> Join/Leave + Last Event
+
+Holt die aktuelle Spielerliste vom Minecraft-Server
+Vergleicht sie mit der letzten gespeicherten Liste aus dem Context
+
+Neu drin -> Join-Nachricht wird gebaut
+Nicht mehr drin -> Leave-Nachricht wird gebaut
+
+
+Schickt die Nachrichten an discordMessageManager -> postet in deinen Channel
+Speichert nebenbei im flow:
+
+mc_player_list (wer gerade online ist)
+mc_last_event (z.B. "Steve joined")
+
+
+
+Server Info -> Bot Activity -> Status Storing
+
+Bot Activity liest die Spielerzahl und setzt den Bot-Status auf "Watching X players"
+Status Storing parst die Zahl raus und speichert sie als mc_players im flow
+
+Discord Client -> Command Storage
+
+Registriert beim Start die Slash-Commands /ping und /status
+Lauscht danach permanent auf interactionCreate-Events
+
+/ping -> antwortet sofort mit "Pong!"
+/status -> liest aus dem flow:
+
+mc_players (Spielerzahl)
+mc_player_list (wer online ist)
+mc_last_event (letztes Ereignis)
+Baut daraus eine formatierte Antwort
+
+
+
+
+
+
+Der flow-Speicher
+
+Ist das Herzstuck des Ganzen
+Die Pipelines laufen unabhangig, teilen sich aber drei Variablen:
+
+mc_players -> aktuelle Spielerzahl
+mc_player_list -> genaue Liste wer online ist
+mc_last_event -> letztes Ereignis
+
+
+Nodes schreiben rein, Command-Handler liest daraus
 
 Digilab:
 Ideen:
