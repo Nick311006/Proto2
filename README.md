@@ -51,3 +51,18 @@ Ideen, die man benutzen kann:
 - Gesundheit auffüllen mir Befehl
 - Portal mit Befehl öffnen um in eine neue Welt zu kommen
 - Tag und Nacht beliebig ändern, Wetter ändern
+
+
+Node-Red:
+
+
+Digilab:
+Ideen:
+- Minecraft-Server mit Digilab verbinden
+- Spieler-ID oder Benutzername wird auf dem kleinen Display angezeigt, wenn man stirbt
+- LED 1-16 z.B.: 7 Spieler online auf dem Server; 7 LEDs an
+- Wenn ein Spieler stirbt, leuchtet die LED bis er respawnt und dann geht das Licht wieder an
+- Große LEDs je nach Wetter in verschiedenen Farben: Regen Blau; Sonne Gelb; Nacht Dunkel Blau; Wolken Grau
+
+Dashboard:
+
