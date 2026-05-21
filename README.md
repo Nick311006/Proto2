@@ -134,3 +134,4 @@ Ideen:
 Dashboard:
 
 Wir haben den Ausgang des Join/Leave Nodes direkt mit einem UI Text Node verbunden. Der Node nimmt dann automatisch den Wert aus msg.payload und zeigt ihn auf dem Dashboard an. Da du mc_last_event bereits als String in der Funktion setzt, kommt der Wert genau so an wie er gespeichert wurde, also z.B. "Steve joined" oder "Steve left".
+Eine andere Idee wäre noch, dass man mit einem Messgerät die Luftfeuchtigkeit des Raumes einzeigen könnte. Z.B.: eine Tabelle im Dashboard der letzen 2 Stunden, die alle 15 Minuten aktualisiert und immer wieder die Luftfeuchtigkeit misst.
